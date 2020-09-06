@@ -72,4 +72,29 @@ $(document).ready(function(){
         }
     })
 
+    //product quantity section
+    let $qty__up= $(".qty .qty-up");
+    let $qty__down= $(".qty .qty-down");
+    // let $input= $(".qty .qty__input");
+
+    //click on qty up btn
+    $qty__up.click(function(e){
+        let $input= $(`.qty__input[data-id='${$(this).data("id")}']`);
+        if($input.val()>=1 && $input.val()<=9){
+            $input.val(function(i,oldval){
+                return ++oldval;
+            })
+        }
+    });
+
+    //click on qty down btn
+    $qty__down.click(function(e){
+        let $input= $(`.qty__input[data-id='${$(this).data("id")}']`);
+        if($input.val()>1 && $input.val()<=10){
+            $input.val(function(i,oldval){
+                return --oldval;
+            })
+        }
+    });
+
 });
